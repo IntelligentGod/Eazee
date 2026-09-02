@@ -7,7 +7,7 @@ import * as DocumentPicker from 'expo-document-picker';
 import { useLocalSearchParams } from 'expo-router';
 import { DocumentPickerResult, DocumentPickerAsset } from 'expo-document-picker';
 import { encode as base64Encode } from 'base-64';
-import * as FileSystem from 'expo-file-system';
+import { File } from 'expo-file-system';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useDraft } from './DraftContext';
@@ -179,7 +179,7 @@ export default function draft() {
 
 
       for (const attachment of attachments) {
-        const fileContent = await FileSystem.readAsStringAsync(attachment.uri, { encoding: FileSystem.EncodingType.Base64 });
+        const fileContent = await new File(attachment.uri).base64();
         emailContent += delimiter;
         emailContent += `Content-Type: ${attachment.mimeType}\r\n`;
         emailContent += `Content-Transfer-Encoding: base64\r\n`;
