@@ -1,0 +1,101 @@
+{
+  "expo": {
+    "name": "Eazee",
+    "slug": "wave",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "com.wave.app",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#aeffe8",
+      "width": 200,
+      "height": 200
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.wave.app",
+      "splash": {
+        "resizeMode": "contain"
+      },
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "Wave needs microphone access for voice chat transcription.",
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "com.wave.app",
+      "softwareKeyboardLayoutMode": "resize",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyBd3itAwpqm2gIkViR3ynowDG8Ba2fyfQc"
+        }
+      },
+      "versionCode": 5,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "RECORD_AUDIO",
+        "POST_NOTIFICATIONS",
+        "SCHEDULE_EXACT_ALARM"
+      ]
+    },
+    "androidNavigationBar": {
+      "backgroundColor": "#ffffff",
+      "barStyle": "dark-content"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "./android-manifest.plugin.js",
+      "expo-notifications",
+      [
+        "expo-dev-launcher",
+        {
+          "launchMode": "most-recent"
+        }
+      ],
+      "expo-router",
+      [
+        "@morrowdigital/watermelondb-expo-plugin",
+        {
+          "disableJsi": true
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "kotlinVersion": "1.9.25",
+            "compileSdkVersion": 35,
+            "targetSdkVersion": 35,
+            "packagingOptions": {
+              "pickFirst": [
+                "**/libc++_shared.so"
+              ]
+            }
+          }
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "23e26ef1-7bc2-4795-8fa3-bb981e6a18e2"
+      }
+    },
+    "owner": "adn0n"
+  }
+}
